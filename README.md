@@ -18,6 +18,8 @@ Une API REST construite avec NestJS qui scrape et stocke des articles de différ
 
 ## 🛠️ Installation
 
+### Option 1: Installation Locale
+
 1. **Cloner le repository**
 ```bash
 git clone git@github.com:upnico9/news-scrapper.git
@@ -57,10 +59,43 @@ sudo service mysql start
 sudo service redis-server start
 ```
 
-6. **Lancer l'application**
+5. **Initialiser la base de données**
 ```bash
 pnpm run db:init
+```
+
+6. **Lancer l'application**
+```bash
 pnpm run start:dev
+```
+
+### Option 2: Installation avec Docker
+
+1. **Cloner le repository**
+```bash
+git clone git@github.com:upnico9/news-scrapper.git
+cd news-scraper
+```
+
+2. **Configurer les variables d'environnement (optionnel)**
+Les variables d'environnement sont déjà configurées dans le fichier `docker-compose.yml`. Vous pouvez les modifier si nécessaire.
+
+3. **Construire et démarrer les conteneurs**
+```bash
+docker compose up --build
+```
+
+4. **Accéder au swagger**
+Le swagger sera disponible à l'adresse: http://localhost:3000/api
+
+5. **Arrêter les conteneurs**
+```bash
+docker compose down
+```
+
+Pour supprimer également les volumes (données persistantes):
+```bash
+docker compose down -v
 ```
 
 ## 📚 API Documentation
